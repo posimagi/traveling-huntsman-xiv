@@ -26,27 +26,56 @@ class Mark:
         return self.location.distance_from(other.location)
 
 
-CASTRUM_ORIENS      = Aetheryte("Castrum Oriens",          Location( 8.8, 11.4))
-PEERING_STONES      = Aetheryte("The Peering Stones",      Location(29.8, 26.4))
-ALA_GANNHA          = Aetheryte("Ala Gannha",              Location(23.6,  6.6))
-ALA_GHIRI           = Aetheryte("Ala Ghiri",               Location(16.0, 36.6))
-PORTA_PRAETORIA     = Aetheryte("Porta Praetoria",         Location( 8.4, 21.2))
-ALA_MHIGAN_QUARTER  = Aetheryte("The Ala Mhigan Quarter",  Location(33.7, 34.6))
-TAMAMIZU            = Aetheryte("Tamamizu",                Location(28.6, 16.4))
-ONOKORO             = Aetheryte("Onokoro",                 Location(23.2,  9.9))
-NAMAI               = Aetheryte("Namai",                   Location(30.1, 19.8))
-HOUSE_OF_THE_FIERCE = Aetheryte("The House of the Fierce", Location(26.3, 13.5))
-REUNION             = Aetheryte("Reunion",                 Location(32.5, 28.4))
-DAWN_THRONE         = Aetheryte("The Dawn Throne",         Location(23.0, 22.3))
-DHORO_ILOH          = Aetheryte("Dhoro Iloh",              Location( 6.3, 23.9))
-BOGUS_AETHERYTE     = Aetheryte("Unknown",                 Location(99.9, 99.9))
+CASTRUM_ORIENS      = Aetheryte("Castrum Oriens",                    Location( 8.8, 11.4))
+PEERING_STONES      = Aetheryte("The Peering Stones",                Location(29.8, 26.4))
+RHALGRS_FRINGES     = Aetheryte("Rhalgr's Reach (Fringes Gate)",     Location(34.2,  8.7))  # see assumptions below
+RHALGRS_PEAKS       = Aetheryte("Rhalgr's Reach (Peaks Gate)",       Location( 4.2,  3.6))  # see assumptions below
+ALA_GANNHA          = Aetheryte("Ala Gannha",                        Location(23.6,  6.6))
+ALA_GHIRI           = Aetheryte("Ala Ghiri",                         Location(16.0, 36.6))
+PORTA_PRAETORIA     = Aetheryte("Porta Praetoria",                   Location( 8.4, 21.2))
+ALA_MHIGAN_QUARTER  = Aetheryte("The Ala Mhigan Quarter",            Location(33.7, 34.6))
+TAMAMIZU            = Aetheryte("Tamamizu",                          Location(28.6, 16.4))
+ONOKORO             = Aetheryte("Onokoro",                           Location(23.2,  9.9))
+ONOKORO_FERRY       = Aetheryte("Onokoro (Ferry)",                   Location(41.4, 43.2))  # see assumptions below
+NAMAI               = Aetheryte("Namai",                             Location(30.1, 19.8))
+HOUSE_OF_THE_FIERCE = Aetheryte("The House of the Fierce",           Location(26.3, 13.5))
+DOMAN_ENCLAVE       = Aetheryte("The Doman Enclave (The One River)", Location( 8.4, 35.6))  # see assumptions below
+REUNION             = Aetheryte("Reunion",                           Location(32.5, 28.4))
+DAWN_THRONE         = Aetheryte("The Dawn Throne",                   Location(23.0, 22.3))
+DHORO_ILOH          = Aetheryte("Dhoro Iloh",                        Location( 6.3, 23.9))
+BOGUS_AETHERYTE     = Aetheryte("Unknown",                           Location(99.9, 99.9))
+
+# Doman Enclave assumptions:
+# # Aethernet to The One River
+# # Zone + mount time: 12 seconds
+# # Yanxia flight speed: 2.5 seconds per unit
+# # Actual entry point to Yanxia: (11.7, 32.2)
+
+# Rhalgr's Reach (The Fringes) assumptions:
+# # Aethernet to Fringes Gate
+# # Zone + mount time: 12 seconds
+# # The Fringes flight speed: 2.5 seconds per unit
+# # Actual entry point to The Fringes: (29.9, 10.8)
+
+# Rhalgr's Reach (The Peaks) assumptions:
+# # Aethernet to Peaks Gate
+# # Zone + mount time: 12 seconds
+# # The Peaks flight speed: 2.5 seconds per unit
+# # Actual entry point to The Peaks: (8.5, 5.7)
+
+# Onokoro (Ferry) assumptions:
+# # Zone + walk to Confederate Skipper + load time: 25 seconds
+# # The Ruby Sea flight speed: 2.5 seconds per unit
+# # Actual entry point to The Ruby Sea: 23.1. 9.9
+# # Actual landing point from Ferry: 32.7, 38.2
+
 
 aetherytes = {
-    "The Fringes":     [CASTRUM_ORIENS, PEERING_STONES],
-    "The Peaks":       [ALA_GANNHA, ALA_GHIRI],
+    "The Fringes":     [CASTRUM_ORIENS, PEERING_STONES, RHALGRS_FRINGES],
+    "The Peaks":       [ALA_GANNHA, ALA_GHIRI, RHALGRS_PEAKS],
     "The Lochs":       [PORTA_PRAETORIA, ALA_MHIGAN_QUARTER],
-    "The Ruby Sea":    [TAMAMIZU, ONOKORO],
-    "Yanxia":          [NAMAI, HOUSE_OF_THE_FIERCE],
+    "The Ruby Sea":    [TAMAMIZU, ONOKORO, ONOKORO_FERRY],
+    "Yanxia":          [NAMAI, HOUSE_OF_THE_FIERCE, DOMAN_ENCLAVE],
     "The Azim Steppe": [REUNION, DAWN_THRONE, DHORO_ILOH]
 }
 
